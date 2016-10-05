@@ -8,7 +8,7 @@ int main() {
 
 	engine->setRealtimeKeyboardCallback([]() {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
-			// std::cout << "[KEY CALLBACK] R key has been pressed" << std::endl;
+			std::cout << "[KEY CALLBACK] R key has been pressed" << std::endl;
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {
@@ -25,12 +25,14 @@ int main() {
 	});
 
 	std::shared_ptr<E2D::EventBus> eBus = E2D::EventBus::getInstance();
-	eBus->subscribeKeyPress([](E2D::KeyReleasedMessage message) -> void {
-		for (std::vector<sf::Keyboard::Key>::iterator it = message.keys.begin(); it != message.keys.end() && *it != sf::Keyboard::End; it++) {
+	eBus->subscribeKeyReleased([](E2D::KeyReleasedMessage message) -> void {
+		for (std::vector<sf::Keyboard::Key>::iterator it = message.keys.begin(); it != message.keys.end() && *it != sf::Keyboard::Unknown; it++) {
 			sf::Keyboard::Key& key(*it);
 			std::cout << "[KEY CALLBACK] " << key << " key has been pressed" << std::endl;
 		}
 	});
+
+	std::shared_ptr<E2D::CentralObjectStorage> cos = E2D::CentralObjectStorage::getInstance();
 
 	engine->start();
 

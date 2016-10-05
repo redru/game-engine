@@ -152,11 +152,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\CentralObjectStorage.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\Graphics.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\headers\CentralObjectStorage.h" />
+    <ClInclude Include="src\headers\Drawable.h" />
     <ClInclude Include="src\headers\Engine.h" />
     <ClInclude Include="src\headers\EventBus.h" />
     <ClInclude Include="src\headers\Graphics.h" />

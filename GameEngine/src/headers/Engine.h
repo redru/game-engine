@@ -1,5 +1,6 @@
 #pragma once
 #include "Graphics.h"
+#include "CentralObjectStorage.h"
 
 namespace E2D {
 

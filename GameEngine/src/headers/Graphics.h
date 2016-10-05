@@ -17,7 +17,7 @@ namespace E2D {
 
 	private:
 		void drawElements();
-		void clearScreen();
+		void clearScreen(sf::Color color);
 
 	private:
 		std::shared_ptr<sf::RenderWindow> window;

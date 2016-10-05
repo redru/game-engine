@@ -15,20 +15,34 @@ namespace E2D {
 	public:
 		// COLOR CHANGE ###################################################
 		void subscribeColorChange(std::function<void(E2D::ColorChangeMessage& message)> executor) {
-			colorChangeSubscribers[0] = executor;
+			static std::vector<std::function<void(E2D::ColorChangeMessage& message)>>::iterator it = colorChangeSubscribers.begin();
+
+			if (it != colorChangeSubscribers.end()) {
+				*it = executor;
+				it++;
+			}
 		}
 
 		void publishColorChange(E2D::ColorChangeMessage& message) {
-			colorChangeSubscribers[0](message);
+			for (std::vector<std::function<void(E2D::ColorChangeMessage& message)>>::iterator it = colorChangeSubscribers.begin(); it != colorChangeSubscribers.end() && *it != nullptr; it++) {
+				(*it)(message);
+			}
 		}
 
 		// KEY PRESS ######################################################
-		void subscribeKeyPress(std::function<void(E2D::KeyReleasedMessage& message)> executor) {
-			keyReleasedSubscribers[0] = executor;
+		void subscribeKeyReleased(std::function<void(E2D::KeyReleasedMessage& message)> executor) {
+			static std::vector<std::function<void(E2D::KeyReleasedMessage& message)>>::iterator it = keyReleasedSubscribers.begin();
+
+			if (it != keyReleasedSubscribers.end()) {
+				*it = executor;
+				it++;
+			}
 		}
 
-		void publishKeyPress(E2D::KeyReleasedMessage& message) {
-			keyReleasedSubscribers[0](message);
+		void publishKeyReleased(E2D::KeyReleasedMessage& message) {
+			for (std::vector<std::function<void(E2D::KeyReleasedMessage& message)>>::iterator it = keyReleasedSubscribers.begin(); it != keyReleasedSubscribers.end() && *it != nullptr; it++) {
+				(*it)(message);
+			}
 		}
 
 	private:
@@ -46,7 +60,7 @@ namespace E2D {
 		}
 
 	private:
-		EventBus() : colorChangeSubscribers(50), keyReleasedSubscribers(50){ };
+		EventBus() : colorChangeSubscribers(50), keyReleasedSubscribers(50) { };
 
 	};
 

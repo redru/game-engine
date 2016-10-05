@@ -34,6 +34,15 @@
     <Filter Include="Header Files\2dengine\eventbus">
       <UniqueIdentifier>{5e0c8a3f-55ad-46c1-8baa-2e169588a2fd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\2dengine\graphics">
+      <UniqueIdentifier>{a42d0175-e38b-4360-a64e-ac0c05f3759f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\game">
+      <UniqueIdentifier>{cf85fd9c-3a4a-434d-8f73-5122d53cb959}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game">
+      <UniqueIdentifier>{efded5c1-2a6c-4130-8d1b-9984818bda2e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -43,6 +52,9 @@
       <Filter>Source Files\2dengine</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphics.cpp">
+      <Filter>Source Files\2dengine\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CentralObjectStorage.cpp">
       <Filter>Source Files\2dengine\modules</Filter>
     </ClCompile>
   </ItemGroup>
@@ -58,6 +70,12 @@
     </ClInclude>
     <ClInclude Include="src\headers\Messages.h">
       <Filter>Header Files\2dengine\eventbus</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\Drawable.h">
+      <Filter>Header Files\2dengine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\CentralObjectStorage.h">
+      <Filter>Header Files\2dengine\modules</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

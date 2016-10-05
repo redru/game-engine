@@ -17,7 +17,7 @@ void E2D::Graphics::start() {
 		std::shared_ptr<E2D::EventBus> eBus = E2D::EventBus::getInstance();
 
 		window = std::make_shared<sf::RenderWindow>();
-		window->create(sf::VideoMode(800, 600), "2D Engine");
+		window->create(sf::VideoMode(1280, 720), "2D Engine");
 
 		std::vector<sf::Keyboard::Key> keysReleased(30);
 		unsigned short int keysReleasedCounter = 0;
@@ -31,25 +31,31 @@ void E2D::Graphics::start() {
 				if (event.type == sf::Event::Closed)
 					window->close();
 
+				// Add released keys to KeyVector
 				if (event.type == sf::Event::KeyReleased) {
 					if (keysReleasedCounter < 30) {
-						keysReleased[keysReleasedCounter] = event.key.code;
-						keysReleasedCounter++;
+						keysReleased[keysReleasedCounter] = event.key.code; // Set key code inside keysReleased
+						keysReleasedCounter++; // Increment keysReleasedCounter +1
 					}
 				}
 					
 			}
 
+			// If there were keys released
 			if (keysReleasedCounter != 0) {
-				keysReleased[keysReleasedCounter] = sf::Keyboard::End;
-				keysReleasedCounter = 0;
+				keysReleased[keysReleasedCounter] = sf::Keyboard::Unknown; // Add "Unknown" key marker to the end
+				keysReleasedCounter = 0; // Reset keysReleased counter
 
-				eBus->publishKeyPress(E2D::KeyReleasedMessage(keysReleased));
+				eBus->publishKeyReleased(E2D::KeyReleasedMessage(keysReleased)); // Publish keyReleased message
 			}
 
-			clearScreen();
+			// Clear screen function
+			clearScreen(sf::Color::Black);
+
+			// Draw all elements
 			drawElements();
 
+			// Swap buffers
 			window->display();
 		}
 
@@ -61,9 +67,15 @@ void E2D::Graphics::start() {
 }
 
 void E2D::Graphics::drawElements() {
-
+	sf::RectangleShape rectangle;
+	rectangle.setSize(sf::Vector2f(100, 50));
+	rectangle.setOutlineColor(sf::Color::Red);
+	rectangle.setOutlineThickness(5);
+	rectangle.setPosition(10, 20);
+	
+	window->draw(rectangle);
 }
 
-void E2D::Graphics::clearScreen() {
-	window->clear(sf::Color::Black);
+void E2D::Graphics::clearScreen(sf::Color color) {
+	window->clear(color);
 }
