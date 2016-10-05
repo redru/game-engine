@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\2dengine">
+      <UniqueIdentifier>{0efa7bb2-b144-4999-9ac4-39c1189853df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\2dengine\modules">
+      <UniqueIdentifier>{68187355-41fd-4f6a-b4c0-c8c163fe9a27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\3dengine">
+      <UniqueIdentifier>{d763d34c-603f-421c-8878-0f9d320969be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\2dengine">
+      <UniqueIdentifier>{ced6d2d3-38a9-49aa-a006-62338c556e78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\3dengine">
+      <UniqueIdentifier>{f53167c3-2df6-499d-9e36-8bad462eeb8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\2dengine\modules">
+      <UniqueIdentifier>{054b7dfd-b727-4c83-8063-9283a463a95f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\2dengine\eventbus">
+      <UniqueIdentifier>{5e0c8a3f-55ad-46c1-8baa-2e169588a2fd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine.cpp">
+      <Filter>Source Files\2dengine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics.cpp">
+      <Filter>Source Files\2dengine\modules</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\headers\Engine.h">
+      <Filter>Header Files\2dengine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\Graphics.h">
+      <Filter>Header Files\2dengine\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\EventBus.h">
+      <Filter>Header Files\2dengine\eventbus</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\Messages.h">
+      <Filter>Header Files\2dengine\eventbus</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
